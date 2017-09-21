@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    var dom = document.querySelector("div");
+  /*
+   面试题：click事件比触屏事件慢多少  200-300ms
+  */
+    dom.addEventListener("touchstart", function () {
+      // console.log('start');
+      // 开启计时器 名字
+      console.time("go");
+    });
+
+    dom.addEventListener("click", function () {
+      // console.log('click');
+      //  结束计时器 +名字
+      console.timeEnd("go");
+    });
+
+    dom.addEventListener("touchend", function () {
+      // console.log('end');
+
+    });
+  </script>
+</body>
+
+</html>

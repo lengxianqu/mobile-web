@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+   1 手指按下的时候 div变成red
+   2  手指按下并且移动的时候 div变成 蓝色 blue
+   3 手指离开的时候 div变成 green
+
+  -->
+  <div></div>
+</body>
+<script>
+  // 获取目标元素
+  var dom = document.querySelector("div");
+
+  // 绑定 手指按下事件  -- 事件名都是小写
+  // dom.addEventListener("touchstart", function () {
+  //   this.style.backgroundColor = "red";
+  // });
+  // // 绑定手指移动事件
+  // dom.addEventListener("touchmove", function () {
+  //   this.style.backgroundColor = "blue";
+  // });
+  // // 绑定手指离开事件
+  // dom.addEventListener("touchend", function () {
+  //   this.style.backgroundColor = "green";
+  // });
+
+
+  /* on+事件名   触屏端不能通过on+事件名的形式去绑定  */
+  dom.ontouchstart = function () {
+    this.style.backgroundColor = "red";
+  }
+
+</script>
+<!--
+   移动端的触屏事件在pc端能否触发 --不能
+   click事件能否在移动端触发---能
+
+   触屏端不能通过on+事件名的形式去绑定
+-->
+
+</html>

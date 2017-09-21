@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+<script>
+  /*
+   移动端tap点击事件：
+   1 判断手指按下的个数
+   2 手指按下移动的距离 不能太大 5px
+   3 手指按下的时间不能太长 500ms
+*/
+
+  // 获取目标元素
+  var dom = document.querySelector("div");
+
+  // 手指按下坐标
+  var startX, startY;
+
+  // 手指按下的时间
+  var startTime;
+  dom.addEventListener("touchstart", function (e) {
+    // 判断手指按下的个数
+    if (e.targetTouches.length > 1) {
+      return;
+    }
+
+    // 记录手指按下坐标
+    startX = e.targetTouches[0].clientX;
+    startY = e.targetTouches[0].clientY;
+    // console.log(startX,startY);
+    // 记录按下的时间  记录了1970 01 01 到现在的毫秒
+    //  var date=new Date();
+    //  var time=date.getTime();
+
+    startTime = Date.now();
+    // console.log(time,startTime);
+  });
+  dom.addEventListener("touchend", function (e) {
+    // 判断手指的个数
+    if (e.changedTouches.length > 1) {
+      return;
+    }
+
+    // 获取手指离开的坐标
+    var endX = e.changedTouches[0].clientX;
+    var endY = e.changedTouches[0].clientY;
+
+    // 判断手指移动的距离
+    if (Math.abs(endX - startX) > 5) {
+      return;
+    }
+    if (Math.abs(endY - startY) > 5) {
+      return;
+    }
+
+    // 获取离开的时间
+    var endTime = Date.now();
+
+    // 判断手指按下的时间
+    if (endTime - startTime > 500) {
+      return;
+    }
+
+
+    // 执行自己的tap点击逻辑
+    alert("这个是点击事件");
+  });
+
+</script>
+
+</html>

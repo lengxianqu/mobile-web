@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  
+  div{
+    width: 200px;height: 200px;background-color: aqua;
+  }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+<script>
+
+  var dom=document.querySelector("div");
+
+  dom.addEventListener("touchstart",function(e){
+    // dom.innerHTML=e.touches.length+"  "+ e.targetTouches.length+"  "+e.changedTouches.length;
+    // console.log(e.touches.length,e.targetTouches.length,e.changedTouches.length);
+  });
+  
+  dom.addEventListener("touchmove",function(e){
+    // console.log(e.touches.length,e.targetTouches.length,e.changedTouches.length);
+  });
+   
+  dom.addEventListener("touchend",function(e){
+    console.log(e.touches.length,e.targetTouches.length,e.changedTouches.length);
+
+  });
+
+/*
+ 获取手指离开的屏幕的时候触摸点的集合  需要用到e.changedTouches
+*/
+</script>
+</html>

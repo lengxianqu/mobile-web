@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <!--
+  回调函数：
+  把函数b当作参数传递到函数a里面 ，在a执行完a逻辑之后再调用函数b  函数b-回调函数
+
+  -->
+</body>
+<script>
+  // function b() {
+  //   console.log("bbbb");
+  // }
+
+  // function a(param) {
+  //   // 执行自己逻辑
+  //   console.log('aaaa');
+  //   param();
+  //   console.log('cccc');
+
+  // }
+  // a(b);
+
+  /*
+   $("").click(function(){});
+   itcast(dom).click(function(){});
+  */
+
+  // function itcast(param) {
+  //   dom.addEventListener("click", function () {
+  //     param();
+  //   });
+  // }
+  // var dom = document.querySelector("div");
+  // var c = function () { };
+  // //  itcast(dom).click(c);
+  // function itcast(dom1) {
+  //   var obj = {
+  //     click: function (callback) {
+  //       dom1.addEventListener("click", function () {
+  //         callback();
+  //       });
+  //     }
+  //   };
+  //   return obj;
+  // }
+
+  // itcast(dom).click(function () {
+  //   console.log('自己的逻辑');
+
+  // });
+
+
+
+  /*
+   $("").click(function(){});
+
+   itcast(dom).yourClick(function(){});
+  */
+
+  function itcast(dom1) {
+    var obj = {
+      yourClick: function (callback) {
+        dom1.addEventListener("click", function () {
+          callback();
+        })
+      }
+    };
+    return obj;
+  }
+
+  var dom=document.querySelector("div");
+
+  itcast(dom).yourClick(function(){
+  console.log('自己的逻辑');
+  });
+
+</script>
+
+</html>

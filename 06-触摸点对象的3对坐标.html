@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <title>Document</title>
+  <style>
+    div {
+      width: 400px;
+      height: 200px;
+      background-color: aqua;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+<script>
+  var dom = document.querySelector("div");
+
+  dom.addEventListener("touchstart", function (e) {
+    // dom.innerHTML=e.touches.length+"  "+ e.targetTouches.length+"  "+e.changedTouches.length;
+    // console.log(e.touches.length,e.targetTouches.length,e.changedTouches.length);
+    var target = e.targetTouches[0];
+    // console.log(target);
+    var clientX = target.clientX;
+    var clientY = target.clientY;
+    var pageX = target.pageX;
+    var pageY = target.pageY;
+    var screenX = target.screenX;
+    var screenY = target.screenY;
+
+    dom.innerHTML = "clientX:" + clientX + " clientY" + clientY;
+    dom.innerHTML += "<br>";
+    // dom.innerHTML += "pageX:" + pageX + " pageY" + pageY;
+    // dom.innerHTML += "<br>";
+    dom.innerHTML += "screenX:" + screenX + " screenY" + screenY;
+
+  });
+
+</script>
+
+</html>
